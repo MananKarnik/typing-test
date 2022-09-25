@@ -14,7 +14,7 @@ fn main() {
 
 
     let mut quit = false;
-    let mut text = "Hello World";
+    let mut text = "Hello_World";
     let mut idx = 0;
     let mut mistakes = 0;
 
@@ -26,12 +26,12 @@ fn main() {
     mv(0, 0);
 
     while !quit {
+        // Wait for keypress
         let key = getch();
 
         if idx < text.len() {
             let mut ch = text.chars().nth(idx).unwrap();
-            // Wait for keypress
-            if key as u8 as char == ch {
+            if key as u8 as char == ch  || key as u8 as char == ' ' && ch == '_' {
                 attron(COLOR_PAIR(2));
                 addch(ch as u32);
                 mv(0, (idx + 1).try_into().unwrap());
